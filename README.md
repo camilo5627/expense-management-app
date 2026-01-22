@@ -81,7 +81,7 @@ When a user logs into the system, different options will be available depending 
 - **View registered payments**  
   View all payments registered during the current month (payment date or start date within the current month).
 
-  Azure URL: https://xn--obligatorioprogramacin2-fugvevbbaygygqfh-l4d.canadacentral-01.azurewebsites.net/
-
 - **Logout**  
   Ends the user session.
+
+Azure URL: https://xn--obligatorioprogramacin2-fugvevbbaygygqfh-l4d.canadacentral-01.azurewebsites.net/
