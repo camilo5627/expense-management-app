@@ -1,0 +1,58 @@
+﻿@using Clases
+@model IEnumerable<Usuario>
+
+@{
+	ViewData["Title"] = "VerPerfil";
+}
+
+<h1>Perfil</h1>
+
+<label for="nombre">Nombre</label>
+<input class="form-control" type="text" id="nombre" value="@ViewBag.NombreUsuario" readonly>
+
+<label for="nombre">Apellido</label>
+<input class="form-control" type="text" id="nombre" value="@ViewBag.ApellidoUsuario" readonly>
+
+<label for="email">Email</label>
+<input class="form-control" type="text" id="email" value="@ViewBag.EmailUsuario" readonly>
+
+<label for="rol">Rol</label>
+<input class="form-control" type="text" id="ro;" value="@ViewBag.RolUsuario" readonly>
+
+<label for="fechaIncorporacion">Fecha de Incorporacion</label>
+<input class="form-control" type="text" id="fechaIncorporacion" value="@ViewBag.FechaIncorporacionUsuario" readonly>
+
+<label for="equipo">Equipo</label>
+<input class="form-control" type="text" id="equipo" value="@ViewBag.EquipoUsuario" readonly>
+
+<label for="totalGastado">Total Gastado</label>
+<input class="form-control" type="text" id="totalGastado" value="@ViewBag.TotalGastadoUsuario" readonly>
+
+@if (ViewBag.RolUsuario == Rol.Gerente)
+{
+	<table class="table table-dark table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>Mail</th>
+			</tr>
+		</thead>
+		<tbody>
+			@{
+				Usuario gerente = ViewBag.usuario;
+			}
+			@foreach (Usuario usuario in Model)
+			{
+				@if (gerente.Equipo == usuario.Equipo)
+				{
+					<tr>
+						<th>@usuario.Nombre</th>
+						<th>@usuario.Apellido</th>
+						<th>@usuario.Email</th>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+}

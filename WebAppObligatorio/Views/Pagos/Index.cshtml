@@ -1,0 +1,57 @@
+﻿@using Clases
+@model IEnumerable<Pago>
+
+<h1>Lista de Pagos</h1>
+
+<a href="~/Pagos/AgregarPagoUnico"><input type="button" value="Agregar pago unico" class="btn btn-primary" /> </a>
+<a href="~/Pagos/AgregarPagoRecurrente"><input type="button" value="Agregar pago recurrente" class="btn btn-primary" /> </a>
+<br />
+
+
+<table class="table table-dark table-hover">
+	<thead>
+		<tr>
+			<th>Id de pago</th>
+			<th>Fecha de compra</th>
+			<th>Descripcion del pago</th>
+			<th>Metodo de pago</th>
+			<th>Tipo de gasto</th>
+			<th>Tipo de Pago</th>
+			<th>Monto</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			string emailLogueado = ViewBag.EmailUsuario;
+		}
+		@foreach (Pago pago in Model)
+		{
+
+			@if (emailLogueado == pago.Usuario.Email)
+			{
+				@if (pago.FechaCompra.Month == DateTime.Now.Month)
+				{
+					<tr>
+						<td>@pago.IdPagos</td>
+						<td>@pago.FechaCompra</td>
+						<td>@pago.Descripcion</td>
+						<td>@pago.MetodoDePago</td>
+						<td>@pago.TipoDeGasto.Nombre</td>
+						<td>
+							@if (pago is PagoRecurrente)
+							{
+								<span class="badge bg-success">Recurrente</span>
+							}
+							else
+							{
+
+								<span class="badge bg-secondary">Único</span>
+							}
+						</td>
+						<td>@pago.Monto</td>
+					</tr>
+				}
+			}
+		}
+	</tbody>
+</table>

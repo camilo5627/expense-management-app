@@ -1,0 +1,19 @@
+﻿@using Clases
+
+@{
+    ViewData["Title"] = "AgregarGasto";
+}
+
+<h2>Agregar Nuevo Gasto</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="Nombre" name="Nombre">
+    </div>
+    <div class="mb-3">
+        <label for="Descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="Descripcion" name="Descripcion">
+    </div>
+    <button type="submit" class="btn btn-primary">Agregar</button>
+</form>

@@ -1,0 +1,38 @@
+﻿@using Clases
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<span class="alert-success">@TempData["Mensaje"]</span>
+@if (Model != null && Model.Count > 0)
+{
+
+	<table class="table table-dark table-hover">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Usuario usuario in Model)
+			{
+				<tr>
+					<td>@usuario.Id</td>
+					<td>@usuario.Nombre</td>
+					<td>@usuario.Email</td>
+					<td><a href="~/Usuario/Eliminar/@usuario.Id">Eliminar</a></td>
+				</tr>
+			}
+		</tbody>
+
+	</table>
+}
+else
+{
+	<span class="alert-success">No existen usuarios</span>
+}

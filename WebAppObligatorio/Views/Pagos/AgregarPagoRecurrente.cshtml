@@ -1,0 +1,56 @@
+﻿@using Clases
+@model Pago
+
+
+@{
+    ViewData["Title"] = "AgregarPagoRecurrente";
+}
+
+<h2>Agregar Pago Recurrente</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="FechaCompra" class="form-label">Fecha de Compra</label>
+        <input type="text" class="form-control" id="FechaCompra" name="FechaCompra">
+    </div>
+    <div class="mb-3">
+        <label for="Descripcion" class="form-label">Descripcion</label>
+        <input type="text" class="form-control" id="Descripcion" name="Descripcion">
+    </div>
+    <div class="mb-3">
+        <label for="MetodoDePago" class="form-label">Metodo de Pago</label>
+        <select id="MetodoDePago" name="MetodoDePago">
+            <option value="">Seleccione un Metodo de Pago</option>
+            @foreach (MetodoPago metodoPago in ViewBag.MetodoPago)
+            {
+                <option value="@metodoPago">@metodoPago</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="TipoDeGasto" class="form-label">Tipo de Gasto</label>
+        <select id="TipoDeGasto" name="TipoDeGasto">
+            <option value="">Seleccione un gasto</option>
+            @foreach (Gasto gasto in ViewBag.Gastos)
+            {
+                <option value="@gasto.Id">@gasto.Nombre</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="Monto">Monto</label>
+        <input type="number" class="form-control" id="Monto" name="Monto">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="FechaFin">Fecha fin (En caso de ser recurrente dejar este campo vacio)</label>
+        <input type="text" class="form-control" id="FechaFin" name="FechaFin">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

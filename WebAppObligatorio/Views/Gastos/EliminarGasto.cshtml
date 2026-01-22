@@ -1,0 +1,27 @@
+﻿@using Clases
+
+@{
+    ViewData["Title"] = "EliminarGasto";
+}
+
+<h2>Eliminar Gasto</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="TipoDeGasto">Seleccione un tipo de Gasto:</label>
+        <select id="TipoDeGasto" name="TipoDeGasto">
+            @foreach (Gasto gasto in ViewBag.Gastos)
+            {
+                <option value="@gasto.Id">@gasto.Nombre</option>
+            }
+        </select>
+        </br>
+        <button type="submit" class="btn btn-primary">Eliminar</button>
+</form>
