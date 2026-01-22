@@ -1,6 +1,6 @@
 # Project Description
 
-Our client requests the development of a second version that includes an **ASP.NET 8.0 MVC Web application** with access via **email and password**.
+Our client requests the development of a version that includes an **ASP.NET 8.0 MVC Web application** with access via **email and password**.
 
 When a user logs into the system, different options will be available depending on their role (**EMPLOYEE** or **MANAGER**). The system must ensure that users who are not authenticated or do not have the required permissions **cannot access unauthorized functionalities**, either through the menu or by directly entering the corresponding URL.
 
